@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "YKSDKManager.h"
 @interface AppDelegate ()
 
 @end
@@ -27,6 +28,12 @@
     LoginViewController *VC = [[LoginViewController alloc] init];
     //给window指定根视图控制器
     self.window.rootViewController = VC;
+    
+    [[YKSDKManager shareManager] initFaceBookSDKForApplication:application didFinishLaunchingWithOptions:launchOptions];
+//    [[FBSDKApplicationDelegate sharedInstance] application:application
+//                             didFinishLaunchingWithOptions:launchOptions];
+//    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
+//    [FBSDKSettings setAppID:@"831242433701387"];
     return YES;
 }
 
@@ -50,11 +57,23 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBSDKAppEvents activateApp];
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [[YKSDKManager shareManager] application:application
+                                            openURL:url
+                                  sourceApplication:sourceApplication
+                                         annotation:annotation];
 }
 
 
