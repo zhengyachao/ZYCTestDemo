@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
 @interface YKSDKManager : NSObject
 
 + (instancetype)shareManager;
@@ -24,4 +25,7 @@
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation;
+/* */
+- (void)logInWithReadPermissions:(NSArray *)permissions
+              fromViewController:(UIViewController *)fromViewController;
 @end

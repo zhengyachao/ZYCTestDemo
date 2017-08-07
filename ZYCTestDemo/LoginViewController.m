@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "YKSDKManager.h"
 
 @interface LoginViewController ()
 {
@@ -61,51 +62,10 @@
 /* 点击登录facebook */
 - (void)_onLoginFaceBook:(UIButton *)button
 {
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions: @[@"public_profile"]
-                 fromViewController:self
-                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
-     {
-         NSLog(@"facebook login result.grantedPermissions = %@,error = %@",result.grantedPermissions,error);
-         if (error)
-         {
-             NSLog(@"Process error");
-         } else if (result.isCancelled)
-         {
-             NSLog(@"Cancelled");
-         } else
-         {
-             NSLog(@"Logged in");
-             //获取用户id, 昵称，大头像
-             if ([FBSDKAccessToken currentAccessToken])
-             {
-                 if (![[FBSDKAccessToken currentAccessToken].userID isEqualToString:_userID])
-                 {
-                     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me?fields=id,name" parameters:nil];
-                     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
-                     {
-                         NSLog(@"result\n%@",result);
-                         [[NSUserDefaults standardUserDefaults] setObject:result forKey:@"FBresult"];
-                         NSDictionary *FBresult = [[NSUserDefaults standardUserDefaults] objectForKey:@"FBresult"];
-                         NSLog(@"FBresult = %@",FBresult);
-                         NSString *userID = result[@"id"];
-                        
-                         if (!error && [[FBSDKAccessToken currentAccessToken].userID isEqualToString:userID])
-                         {
-                             _userName = result[@"name"];
-                             _userID = userID;
-                             _userHeadUrl = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large",userID];
-                             //具体参见：
-                             //https://developers.facebook.com/docs/graph-api/reference/user/picture/
-                             //type参数：small,normal,album,large,square
-                         }
-                     }];
-                 
-                 }
-             }
-         }
-     }];
+    [[YKSDKManager shareManager] logInWithReadPermissions:@[@"public_profile"] fromViewController:self];
+    
 }
+
 /* 点击退出Facebook */
 - (void)_onLoginOutFaceBook:(UIButton *)button
 {
