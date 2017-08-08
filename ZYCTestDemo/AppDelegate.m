@@ -10,6 +10,8 @@
 #import "LoginViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "YKSDKManager.h"
+#import <LineSDK/LineSDK.h>
+
 @interface AppDelegate ()
 
 @end
@@ -74,6 +76,11 @@
                                             openURL:url
                                   sourceApplication:sourceApplication
                                          annotation:annotation];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options
+{
+    return [[LineSDKLogin sharedInstance] handleOpenURL:url];
 }
 
 

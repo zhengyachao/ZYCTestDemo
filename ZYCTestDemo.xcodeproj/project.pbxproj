@@ -20,6 +20,10 @@
 		6A3993AC1F385AB3007A4058 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3993A91F385AB3007A4058 /* FBSDKShareKit.framework */; };
 		6A3993B01F385F05007A4058 /* YKSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3993AF1F385F05007A4058 /* YKSDKManager.m */; };
 		6A3993B21F387539007A4058 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3993B11F387539007A4058 /* Bolts.framework */; };
+		6A3993B71F396091007A4058 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 6A3993B41F396091007A4058 /* CHANGELOG.md */; };
+		6A3993B81F396091007A4058 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6A3993B51F396091007A4058 /* LICENSE.txt */; };
+		6A3993B91F396091007A4058 /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3993B61F396091007A4058 /* LineSDK.framework */; };
+		6A3993BB1F3960B1007A4058 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3993BA1F3960B1007A4058 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		6A3993AE1F385F05007A4058 /* YKSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKSDKManager.h; sourceTree = "<group>"; };
 		6A3993AF1F385F05007A4058 /* YKSDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKSDKManager.m; sourceTree = "<group>"; };
 		6A3993B11F387539007A4058 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ZYCTestDemo/Bolts.framework; sourceTree = "<group>"; };
+		6A3993B41F396091007A4058 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		6A3993B51F396091007A4058 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		6A3993B61F396091007A4058 /* LineSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineSDK.framework; sourceTree = "<group>"; };
+		6A3993BA1F3960B1007A4058 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,11 +78,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A3993BB1F3960B1007A4058 /* CoreTelephony.framework in Frameworks */,
 				6A3993B21F387539007A4058 /* Bolts.framework in Frameworks */,
 				6A3993AC1F385AB3007A4058 /* FBSDKShareKit.framework in Frameworks */,
 				6A3993A01F385A0B007A4058 /* Security.framework in Frameworks */,
 				6A3993AA1F385AB3007A4058 /* FBSDKCoreKit.framework in Frameworks */,
 				6A3993AB1F385AB3007A4058 /* FBSDKLoginKit.framework in Frameworks */,
+				6A3993B91F396091007A4058 /* LineSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +108,7 @@
 		6A3993521F37FDC8007A4058 = {
 			isa = PBXGroup;
 			children = (
+				6A3993B31F396091007A4058 /* LineSDK */,
 				6A39935D1F37FDC8007A4058 /* ZYCTestDemo */,
 				6A3993771F37FDC8007A4058 /* ZYCTestDemoTests */,
 				6A3993821F37FDC8007A4058 /* ZYCTestDemoUITests */,
@@ -163,6 +174,7 @@
 		6A39939E1F385A0B007A4058 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A3993BA1F3960B1007A4058 /* CoreTelephony.framework */,
 				6A3993B11F387539007A4058 /* Bolts.framework */,
 				6A3993A71F385AB3007A4058 /* FBSDKCoreKit.framework */,
 				6A3993A81F385AB3007A4058 /* FBSDKLoginKit.framework */,
@@ -170,6 +182,17 @@
 				6A39939F1F385A0B007A4058 /* Security.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A3993B31F396091007A4058 /* LineSDK */ = {
+			isa = PBXGroup;
+			children = (
+				6A3993B41F396091007A4058 /* CHANGELOG.md */,
+				6A3993B51F396091007A4058 /* LICENSE.txt */,
+				6A3993B61F396091007A4058 /* LineSDK.framework */,
+			);
+			name = LineSDK;
+			path = ZYCTestDemo/LineSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A3993B81F396091007A4058 /* LICENSE.txt in Resources */,
 				6A39936E1F37FDC8007A4058 /* LaunchScreen.storyboard in Resources */,
 				6A39936B1F37FDC8007A4058 /* Assets.xcassets in Resources */,
 			);
@@ -311,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A3993631F37FDC8007A4058 /* AppDelegate.m in Sources */,
+				6A3993B71F396091007A4058 /* CHANGELOG.md in Sources */,
 				6A3993601F37FDC8007A4058 /* main.m in Sources */,
 				6A3993B01F385F05007A4058 /* YKSDKManager.m in Sources */,
 				6A39939B1F384C9A007A4058 /* LoginViewController.m in Sources */,
@@ -463,10 +488,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZYCTestDemo/Framework",
 					"$(PROJECT_DIR)/ZYCTestDemo",
+					"$(PROJECT_DIR)/ZYCTestDemo/LineSDK",
 				);
 				INFOPLIST_FILE = ZYCTestDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = ifreeplay.com.ZYCTestDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -484,10 +511,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZYCTestDemo/Framework",
 					"$(PROJECT_DIR)/ZYCTestDemo",
+					"$(PROJECT_DIR)/ZYCTestDemo/LineSDK",
 				);
 				INFOPLIST_FILE = ZYCTestDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = ifreeplay.com.ZYCTestDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
